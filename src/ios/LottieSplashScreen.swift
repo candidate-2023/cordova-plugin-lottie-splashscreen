@@ -8,7 +8,7 @@ import Lottie
     var callbackId: String?
 
     override func pluginInitialize() {
-        createObservers()
+//         createObservers()
         createView()
     }
 
@@ -139,6 +139,7 @@ import Lottie
             guard let url = URL(string: animationLocation) else { throw LottieSplashScreenError.invalidURL }
             animationView = LottieAnimationView(url: url, closure: { error in
                 if error == nil {
+                self.calculateAnimationSize(width: width, height: height)
                     self.playAnimation()
                 } else {
                     self.destroyView()
@@ -156,7 +157,7 @@ import Lottie
         if loop {
             animationView?.loopMode = .loop
         }
-        animationView?.contentMode = .scaleAspectFit
+        animationView?.contentMode = .scaleAspectFill
         animationView?.animationSpeed = 1
         animationView?.autoresizesSubviews = true
         animationView?.backgroundBehavior = .pauseAndRestore
