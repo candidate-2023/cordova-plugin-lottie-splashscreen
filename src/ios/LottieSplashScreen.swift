@@ -10,7 +10,7 @@ import Lottie
     override func pluginInitialize() {
 //         createObservers()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { // Change `2.0` to the desired number of seconds.
-                self.createView(location: "https://cbwe-candidate-files.s3.ap-northeast-2.amazonaws.com/splash.json", remote: true)
+                self.createView()
             }
     }
 
